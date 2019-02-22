@@ -1,0 +1,45 @@
+{% extends 'riyush/index.html' %}
+
+{% block menu %}
+	<div class="row menu_container" style="margin-left: 3%;">
+		<div class="col s12 m9 menu_container_items" style="padding: 0">
+			<div class="center">Menu</div>
+			{% for item in menu%}
+			    <div class="row menu_item">
+			    	<div class="col l9 m8 s6" style="padding:0;display: flex;font-size: 18px;">
+			    		<p class="col l10 m9 s8" style="padding: 0">{{item.name}}</p>
+			        	<p class="col l2 m3 s4" style="padding:0;text-align: right">Rs {{item.price}}</p>
+			    	</div>
+			    	<div class="col l3 m4 s6" style="padding:0;text-align: center">
+			    		<button class="inc_value btn-floating waves-effect waves-light grey"><i class = "material-icons">add</i></button>
+				        <input type="number" id="{{item.id}}" name="{{item.name}}" price="{{item.price}}" value="0" style="width: 30%;text-align: center; background-color: lightgrey; margin-top: 10px; margin-bottom: 0;">
+				        <button class="dec_value btn-floating waves-effect waves-light grey"><i class = "material-icons">remove</i></button>
+			    	</div>
+			        <div class="col s12 menu_item_desc" >
+			        	<p>{{item.description}}</p>
+			        </div>
+			    </div>
+		    {% endfor %}
+		    <div class="row" style="position: fixed; bottom: 0; width: 90%;">
+			    <button id="checkout_button_{{rest_timings_id}}" class="checkout btn waves-effect waves-light right" style="height: 50px">checkout<i class="material-icons right">send</i></button>
+		    </div>
+		</div>
+		<div class="col s12 m3">
+			<div class="col s12 center">
+				Your Order
+			</div>
+			<div class="col s12 order">
+				<!-- Item Details -->
+			</div>
+			<div class="col s12 total-price">
+				<div class="col s9">
+					Total price
+				</div>
+				<div class="total-price-val col s3 right">
+					0
+				</div>
+			</div>
+		</div>
+	</div>
+	
+{% endblock %}

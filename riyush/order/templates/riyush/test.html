@@ -1,0 +1,53 @@
+{% extends 'riyush/index.html' %}
+
+{% block main %}
+	<div>Menu</div>
+	<div class="basket">0</div>
+    <div>
+        French Hens
+        <input type="number" name="french-hens" id="french-hens" value="0" >
+        <div class="inc_value btn-floating waves-effect waves-light grey"><i class = "material-icons">add</i></div>
+        <!-- best way of working -->
+        <button class="dec_value btn-floating waves-effect waves-light grey"><i class = "material-icons">remove</i></button>
+    </div>
+    <div>
+        <label for="name">Turtle Doves</label>
+        <input type="text" name="turtle-doves" id="turtle-doves" value="0">
+        <div class="change_value btn">+</div>
+        <div class="change_value red btn">-</div>
+    </div>
+    <div>
+        <label for="name">Partridges</label>
+        <input type="text" name="partridge" id="partridge" value="0">
+        <div class="change_value btn">+</div>
+        <div class="change_value red btn">-</div>
+        <a class="change_value btn-floating disabled"><i class="material-icons">add</i></a>
+    </div>
+
+    <h2>Tabs</h2>
+    <p>Click on the buttons inside the tabbed menu:</p>
+
+    <div class="tabs_container">
+      <button class="tablinks active" onclick="openCity(event, 'London')">London</button>
+      <button class="tablinks" onclick="openCity(event, 'Paris')">Paris</button>
+      <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>
+      <button class="tablinks" onclick="openCity(event, 'London')">London</button>
+      <button class="tablinks" onclick="openCity(event, 'Paris')">Paris</button>
+      <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>
+    </div>
+
+    <div id="London" class="tabcontent" style="display: block;">
+      <h3>London</h3>
+      <p>London is the capital city of England.</p>
+    </div>
+
+    <div id="Paris" class="tabcontent">
+      <h3>Paris</h3>
+      <p>Paris is the capital of France.</p> 
+    </div>
+
+    <div id="Tokyo" class="tabcontent">
+      <h3>Tokyo</h3>
+      <p>Tokyo is the capital of Japan.</p>
+    </div>
+{% endblock %}

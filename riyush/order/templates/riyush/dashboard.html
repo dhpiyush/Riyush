@@ -1,0 +1,13 @@
+{% extends 'riyush/index.html' %}
+
+{% block main %}
+	
+	{% for rest in restaurants %}
+	<div>
+		<a href="/restaurants/{{rest.id}}">
+			{{rest.name}}
+		</a>
+	</div>
+	{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,46 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>Riyush</title>
+
+  <!-- CSS  -->
+  <link href="{% static "css/materialize.css" %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="{% static "css/style.css" %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="{% static "css/tabs.css" %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+    <header>
+        <nav class="top-nav red">
+          <div class="container">
+            <div class="nav-wrapper">
+              <a class="page-title">Riyush</a>
+              <ul class="header-list right">
+                {% if user.is_authenticated%}
+                  <li><a href="/logout">Logout</a></li>
+                {% else %}
+                  <li><a href="/login">Login</a></li>
+                {% endif %}
+              </ul>
+            </div>
+          </div>
+        </nav>
+    </header>
+    <div class="dashboard" style="margin-top: 30px">
+      <div class="container">
+        <div class="row">
+          {% block main %}{% endblock %}
+        </div>
+      </div>
+    </div>
+    {% block menu %}{% endblock %}
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script src="{% static "js/jquery-2.1.1.min.js" %}"></script>
+    <script src="{% static "js/materialize.js" %}"></script>
+    <script src="{% static "js/index.js" %}"></script>
+    <script src="{% static "js/init.js" %}"></script>
+    <script src="{% static "js/tabs.js" %}"></script>
+</body>
+</html>

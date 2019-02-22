@@ -1,0 +1,39 @@
+{% extends 'riyush/index.html' %}
+
+{% block main %}
+    <ul class="collection with-header">
+        <li class="collection-header center"><h4>Orders</h4></li>
+        {% for order_id, order_details in orders.items %}  
+            <li class="collection-item" id ="order{{order_id}}">
+                <div class=" row order_details center" > 
+                    <div class="col s12 m3">
+                        Order No. {{order_id}}
+                    </div> 
+                    <div class="col s12 m3 center">
+                        Table No. {{order_details.0.table_details.table_number}}
+                    </div>
+                    <div class="col s12 m3 slot_id" id="{{order_details.0.table_details.id}}">
+                        Slot: {{order_details.0.table_details.slot.slot}}
+                    </div>
+                    <div class="col s12 m3">
+                        <button class="order_completed modal-trigger btn right" data-target="data-target-{{order_id}}" id="{{order_id}}">Completed</button>
+                        <div id="data-target-{{order_id}}" class="modal" style="height: 500px;">
+                            <div class="row" style="margin-top: 100px">
+                               Confirm Order completed  
+                            </div>
+                            <div class="row">
+                                <button class="order_completed_confirm btn" id="{{order_id}}">Completed</button>
+                            </div>    
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    {% for order in order_details %}
+                        {{order.food_details.name}} x {{order.quantity}},
+                    {% endfor %}
+                </div>
+            </li>
+        {% endfor %}
+	</ul>
+
+{% endblock %}
