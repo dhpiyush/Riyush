@@ -3,7 +3,7 @@
 {% block menu %}
 	<div class="row menu_container" style="margin-left: 3%;">
 		<div class="col s12 m9 menu_container_items" style="padding: 0">
-			<div class="center">Menu</div>
+			<div class="center menu-section"><span>Menu</span></div>
 			{% for item in menu%}
 			    <div class="row menu_item">
 			    	<div class="col l9 m8 s6" style="padding:0;display: flex;font-size: 18px;">
@@ -20,13 +20,13 @@
 			        </div>
 			    </div>
 		    {% endfor %}
-		    <div class="row" style="position: fixed; bottom: 0; width: 90%;">
+		    <div class="row" style="position: fixed; bottom: 30px; width: 90%;">
 			    <button id="checkout_button_{{rest_timings_id}}" class="checkout btn waves-effect waves-light right" style="height: 50px">checkout<i class="material-icons right">send</i></button>
 		    </div>
 		</div>
 		<div class="col s12 m3">
-			<div class="col s12 center">
-				Your Order
+			<div class="col s12 center order-section">
+				<span>Your Order</span>
 			</div>
 			<div class="col s12 order">
 				<!-- Item Details -->

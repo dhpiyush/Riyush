@@ -13,7 +13,7 @@
 </head>
 <body>
     <header>
-        <nav class="top-nav red">
+        <!-- <nav class="top-nav red">
           <div class="container">
             <div class="nav-wrapper">
               <a class="page-title">Riyush</a>
@@ -26,16 +26,37 @@
               </ul>
             </div>
           </div>
-        </nav>
-    </header>
-    <div class="dashboard" style="margin-top: 30px">
-      <div class="container">
-        <div class="row">
-          {% block main %}{% endblock %}
+        </nav> -->
+      <nav>
+        <div class="nav-wrapper">
+          <a href="/" class="brand-logo logo-title">gharSeOrder</a>
+          <a href="/" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu" style="color: rgb(27, 27, 27);margin-left: 10px;"></i></a>
+          <ul id="nav-mobile header-links" class="right hide-on-med-and-down">
+            <li><a href="">Home</a></li>
+            <li><a href="">How it works</a></li>
+            <li><a href="">About Us</a></li>
+            <li><a href="">Contact Us</a></li>
+          </ul>
+          <ul class="side-nav" id="mobile-demo">
+            <li><a href="">Home</a></li>
+            <li><a href="">How it works</a></li>
+            <li><a href="">About Us</a></li>
+            <li><a href="">Contact Us</a></li>
+          </ul>
         </div>
-      </div>
+      </nav>
+    </header>
+
+    <div class="dashboard" style="margin-top: 30px">
+      {% block main %}{% endblock %}
     </div>
     {% block menu %}{% endblock %}
+    <footer class="page-footer">
+      <div>
+        Footer
+      </div>
+    </footer>
+
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script src="{% static "js/jquery-2.1.1.min.js" %}"></script>
     <script src="{% static "js/materialize.js" %}"></script>

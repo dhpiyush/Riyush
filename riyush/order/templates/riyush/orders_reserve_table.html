@@ -1,0 +1,23 @@
+{% extends 'riyush/index.html' %}
+
+{% block main %}
+    <div>
+        <h4 class="block_table" id="{{rest_id}}">Reserve Table</h4>
+    </div>
+    <select id="slot_reserve_dropdown">
+    {% for time in time_slots %}
+      <option value={{time.id}}>{{time.slot}}</option>
+    {% endfor %}
+    </select>
+    <button class="btn" id="slot_reserve_search" type="button">Search</button>
+    <div>
+        <div class="row center">TABLE NUMBERS</div>
+        <div class="row" id="table_numbers">
+            Select Time slot first
+        </div>
+        <div>
+            <button class="btn" id="block_table" type="button">Submit</button>
+        </div>
+    </div>
+
+{% endblock %}

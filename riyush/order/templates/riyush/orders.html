@@ -1,6 +1,9 @@
 {% extends 'riyush/index.html' %}
 
 {% block main %}
+    <div>
+        <a href="/orders/reserve/{{rest_id}}">Block Tables -></a>
+    </div>
     <ul class="collection with-header">
         <li class="collection-header center"><h4>Orders</h4></li>
         {% for order_id, order_details in orders.items %}  

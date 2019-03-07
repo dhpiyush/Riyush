@@ -12,7 +12,57 @@ input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none; 
   margin: 0; 
 }
+.contact-us-section, .book-table-section{
+  font-family: 'Great Vibes', cursive;
+  text-align: center;
+  color: rgb(120, 30, 64);
+  border-bottom: 1px solid;
+  line-height: 0.1em;
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+.contact-us-section span, .book-table-section span, .menu-section span, .order-section span{
+  background-color: #fff;
+  padding: 0px 10px;
+}
+.menu-section, .order-section{
+  font-family: 'Great Vibes', cursive;
+  text-align: center;
+  color: rgb(120, 30, 64);
+  border-bottom: 1px solid;
+  line-height: 0.1em;
+  font-size: 26px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.restaurant-title-section{
+  font-family: 'Great Vibes', cursive;
+  color: rgb(120, 30, 64);
+  border-bottom: 1px solid;
+  line-height: 0.1em;
+  font-size: 26px;
+  margin-bottom: 60px;
+}
+.restaurant-title-section span, .avail-slots-title span{
+  background-color: #fff;
+  padding: 0px 10px;
+}
+.avail-slots-section{
+  color: rgb(120, 30, 64);
+  font-family: 'Great Vibes', cursive;
+  font-size: 26px;
+}
+.avail-slots-title{
+  border-bottom: 1px solid;
+}
+.people_count_submit_btn, .slot_button, #order_button, .checkout{
+  background-color: rgb(120, 30, 64);
+}
+.people_count_submit_btn:hover ,.slot_button:hover, #order_button:hover, .checkout:hover {
+  background-color: rgb(140, 36, 75);
+}
 .total-price{
+  border-color: rgb(120, 30, 75);
   border-top: 2px solid;
   margin-top: 20px;
 }
@@ -22,8 +72,7 @@ input[type=number]::-webkit-outer-spin-button {
 .menu_container{
   margin-right: 3%;
 }
-.menu_container_items{
-  border: 2px solid darkgrey;
+.menu_container_items
   max-height: 600px;
   overflow-y: scroll;
 }
@@ -66,8 +115,10 @@ input[type=number]::-webkit-outer-spin-button {
   height: 325px !important;
 }
 
-nav .brand-logo{
-  color: #607d8b;
+nav .logo-title{
+  color: rgb(120, 30, 64);
+  font-family: 'Great Vibes', cursive;
+  margin-left: 20px;
 
 }
 
@@ -76,26 +127,30 @@ nav .brand-logo{
   width: 100%;
 }
 
-nav ul a{color: #000000 ;}
+nav ul a{
+  color: #000000 ;
+  font-family: 'Great Vibes', cursive;
+  font-size: 18px;
+}
 
 main{
-          margin-left: 5%;
-          margin-right: 5% ;
-          padding-left: 3%;
-          padding-right: 2%;
-          background-color: #cfd8dc ;
-          padding-top: 50px;
-          padding-bottom: 50px ;
+  margin-left: 5%;
+  margin-right: 5% ;
+  padding-left: 3%;
+  padding-right: 2%;
+  background-color: #cfd8dc ;
+  padding-top: 50px;
+  padding-bottom: 50px ;
 }
 
 .leftover{display: inline;}
 
 
 .title{
-      margin-left: -70px ;
-      font-size: 30px ;
-      font: bold ;
-      }
+  margin-left: -70px ;
+  font-size: 30px ;
+  font: bold ;
+}
 
 p {
   line-height: 2rem;
@@ -104,25 +159,36 @@ p {
 
 footer.page-footer {
   margin: 0;
+  color: rgb(120, 30, 64);
+  background-color: rgb(246, 246, 246);
+  position: fixed;
+  bottom: 0px;
+  width: 100%
 }
 
 
-nav.top-nav a.page-title, ul.header-list {
+/*nav.top-nav a.page-title, ul.header-list {
   line-height: 80px;
   font-size: 35px;
 }
 
 a.button-collapse.top-nav.full {
   line-height: 80px;
+}*/
+nav .nav-wrapper {
+  background-color: #fff
 }
 
 @media only screen and (max-width : 992px) {
   nav .nav-wrapper {
     text-align: center;
   }
-  nav .nav-wrapper a.page-title {
+  nav .logo-title{
+  margin-left: 0px;
+}
+  /*nav .nav-wrapper a.page-title {
     font-size: 36px;
-  }
+  }*/
 }
 
 @media only screen and (min-width: 600px )and (max-width : 992px) {
@@ -140,7 +206,7 @@ a.button-collapse.top-nav.full {
 
 @media only screen and (max-width : 600px) {
   
-  nav .brand-logo{
+  nav .logo-title{
   width: 100%
 
   }

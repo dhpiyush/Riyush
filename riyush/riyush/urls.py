@@ -28,12 +28,15 @@ urlpatterns = [
     # url(r'^signup$', views.signup),
     url(r'^available_slots$',views.available_slots),
     url(r'^orders/(?P<id>\d+)$',views.orders),
+    url(r'^orders/reserve/(?P<id>\d+)$',views.orders_reserve_table),
+    url(r'^get_tables$',views.get_tables),
+    url(r'^block_table$',views.block_table),
     url(r'^order_complete',views.order_complete),
     url(r'^menu/(?P<id>\d+)$',views.menu),
     url(r'^payment$', views.payment),
     url(r'^payment/success$', views.payment_success),
     url(r'^payment_details$', views.payment_details),
     url(r'^restaurants/(?P<id>\d+)$',views.restaurants),
-    url(r'^save$',views.save_data),
+    url(r'^save$',views.save_data)
 
 ]

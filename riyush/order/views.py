@@ -6,6 +6,7 @@ from django.http import JsonResponse
 
 import json
 import razorpay
+import datetime
 
 from order.models import Food, Restaurants, Times, RestaurantTimings, Tables, Order, Payments
 
@@ -57,7 +58,62 @@ def orders(request,id=None):
 				orders_dict[order_id] = [order]
 			else:
 				orders_dict[order_id].append(order)
-	return render(request,'riyush/orders.html',{'orders': orders_dict})
+	return render(request,'riyush/orders.html',{'orders': orders_dict,'rest_id':id})
+
+def orders_reserve_table(request,id=None):
+	# if not request.user.is_staff:
+	# 	return HttpResponseRedirect('/')
+	time_slots = Times.objects.all()
+	now = datetime.datetime.now()
+	slots_array = []
+	for slots in time_slots:
+		# slots.slot = '0:00-1:00' 
+		slot = slots.slot.split('-')[0] #'0:00'
+		slot_hr = int(slot.split(':')[0]) # 0
+		slot_min = int(slot.split(':')[1]) # 00
+		if slot_hr > now.hour:
+			slots_array.append(slots)
+		elif slot_hr == now.hour and slot_min > now.minute :
+			slots_array.append(slots)
+			
+	return render(request,'riyush/orders_reserve_table.html',{'time_slots': slots_array,'rest_id':id})
+
+@csrf_exempt
+def get_tables(request):
+	if request.method == 'POST':
+		try:
+			tables = []
+			rest_id = request.POST['rest_id']
+			slot_id = request.POST['slot_id']
+			tables = RestaurantTimings.objects.filter(rest=rest_id,slot=slot_id,is_avail=True)
+			tables_list = []
+			if tables:
+				for table in tables:
+					table_details = {}
+					table_details['rest_timings_id'] = table.id
+					table_details['table_number'] = table.table_number
+					tables_list.append(table_details)
+			return JsonResponse({"message": "Table Number Search Successful",'tables': json.dumps(tables_list)}, status=200)
+		except Exception as e:
+			return JsonResponse({"message": e,'tables':[]}, status=500)
+	else:
+		return JsonResponse({"message": "Table Number Search InSuccessful", 'tables':[]}, status=500)
+
+@csrf_exempt
+def block_table(request):
+	if request.method == 'POST':
+		try:
+			tables = []
+			rest_timings_id = request.POST['rest_timings_id']
+			rest = RestaurantTimings.objects.get(id=rest_timings_id)
+			rest.is_avail = False
+			rest.save()
+			return JsonResponse({"message": "Table Block Successful"}, status=200)
+		except Exception as e:
+			return JsonResponse({"message": e}, status=500)
+	else:
+		return JsonResponse({"message": "Table Block InSuccessful"}, status=500)
+
 
 @csrf_exempt
 def order_complete(request):

@@ -275,5 +275,58 @@ $(".checkout").on("click", function(){
 
 });
 
+function table_button_click(){
+	var $button = $(this);
+	$('.table_button').removeClass('grey');
+	$button.addClass('grey');
+    console.log(this.id);
+}
+
+$('#slot_reserve_search').on('click',function(){
+	var slot_id = $('#slot_reserve_dropdown :selected').val();
+	var rest_id = $('.block_table').attr('id');
+	$.post("/get_tables",{'rest_id':rest_id,'slot_id':slot_id},function(data){
+    	console.log(' Table Number Search success');
+
+    	var tables = JSON.parse(data.tables);
+    	$('#table_numbers').html('')
+    	if (!tables.length) {
+    		$('#table_numbers').html(' All tables booked for this slot');
+    	}
+    	for(var i=0; i< tables.length;i++){
+    		// var btn = '<button class="btn slot_button" style="margin-right: 5px" id='+ slots[i].rest_timings_id +'>'+ slots[i].slot +'</button>'
+    		var btn = document.createElement('button');
+    		btn.className = "btn table_number";
+    		btn.innerHTML = tables[i].table_number;
+    		btn.id = tables[i].rest_timings_id;
+    		btn.onclick = table_button_click;
+    		$('#table_numbers').append(btn);
+    	}
+    })
+      .fail(function() {
+	    console.log(' Table Number Search Error');
+	  })
+	console.log(slot_id);
+});
+
+$('#block_table').on('click',function(){
+	var rest_timings_id = $('#table_numbers').find('.grey').attr('id');
+	if(rest_timings_id){
+		$.post("/block_table",{'rest_timings_id':rest_timings_id},function(data){
+	    	console.log('Block Table success');
+	    	Materialize.toast('Table Booked', 2000);
+	 		$('#table_numbers').html('');
+	    })
+	      .fail(function() {
+	      	Materialize.toast('Error !!! Please try again  ', 2000);
+		    console.log('Block Table Error');
+		  })
+	}
+	else{
+		Materialize.toast('Please select table number ', 2000);
+	}
+});
+
+
 
 
