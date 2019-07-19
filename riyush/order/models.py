@@ -41,7 +41,7 @@ class Payments(models.Model):
 	razorpay_order_id = models.CharField(max_length=10000,null=True,blank=True)
 	razorpay_signature = models.CharField(max_length=10000,null=True,blank=True)
 	amount = models.IntegerField(null=True,blank=True)
-	contact = models.IntegerField(max_length=12,null=True,blank=True)
+	contact = models.IntegerField(null=True,blank=True)
 	email = models.CharField(max_length=10000,null=True,blank=True)
 
 class Order(models.Model):
@@ -53,3 +53,11 @@ class Order(models.Model):
 	payments = models.ForeignKey(Payments, related_name="Payments", blank=True, null=True)
 	is_completed = models.BooleanField(default=False)
 		
+
+class contact(models.Model):
+    name = models.CharField(max_length=50)
+    #contact_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Contact number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
+    #number = models.CharField(validators=[contact_regex], max_length=15)
+    number = models.CharField(max_length=15)
+    email = models.EmailField()
+    message = models.CharField(max_length=500)

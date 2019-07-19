@@ -1,11 +1,11 @@
 {% extends 'riyush/index.html' %}
 
 {% block main %}
-<div class="row restaurant-title-section">
+<div class="row center restaurant-title-section">
 	<span>{{name}}</span>
 </div>
 <div class="container">
-	<div class="center book-table-section">
+	<div class="row book-table-section">
 		<span>Book Table<span>
 	</div>
 	<div class="row">
@@ -13,7 +13,7 @@
 	        <div class="input-field">
 	            <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
 	        </div>
-	        <div class="input-field">
+	        <div class="input-field count_people">
 	            <input class="people" id="{{rest_id}}" name="people" type="number" required>
 	            <label for="people">Enter Number of people</label>
 	        </div>
@@ -22,10 +22,9 @@
 	        </div>
 	    </form>
 	</div>
-	<div>
-		<div class="center avail-slots-section">
-			<div class="center col s12 avail-slots-title"><span>Available time slots</span></div>
-			<div class="center col s12"><span>for 2</span></div>
+	<div class="row">
+		<div class="avail-slots-section">
+			<div class="avail-slots-title"><span>Available time slots for 2</span></div>
 		</div>
 		<div class="time_slots">
 			{% for rest in slots %}
@@ -47,8 +46,8 @@
 			</div>
 		</div>
 	</div>
-	<div style="position: fixed; bottom: 50px; width: 80%;">
-		<button id="order_button" class="order btn waves-effect waves-light right" style="height: 50px">Order Food<i class="material-icons right">send</i></button>
-	</div>
+</div>
+<div class="row">
+	<button id="order_button" class="order btn waves-effect waves-light right" style="height: 50px">Order Food<i class="material-icons right">send</i></button>
 </div>
 {% endblock %}

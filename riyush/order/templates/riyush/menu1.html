@@ -3,16 +3,7 @@
 {% block menu %}
 	<div class="row menu_container" style="margin-left: 3%;">
 		<div class="col s12 m9 menu_container_items" style="padding: 0">
-			<div class="center menu-section"><span>Menu</span></div>
-			<div class="category tabs_container">
-		      <button class="tablinks active" onclick="openCity(event, 'London')">London</button>
-		      <button class="tablinks" onclick="openCity(event, 'Paris')">Paris</button>
-		    </div>
-		    <div id="London" class="tabcontent" style="display: block;">
-		    	<div class="sub-category">
-		    		Sub Category
-		    	</div>
-		    	{% for item in menu%}
+			{% for item in menu%}
 			    <div class="menu_item">
 			    	<div class="col l9 m8 s6" style="padding:0;display: flex;">
 			    		<p class="col l10 m9 s8" style="padding: 0">{{item.name}}</p>
@@ -27,12 +18,7 @@
 			        	<p>{{item.description}}</p>
 			        </div>
 			    </div>
-		    	{% endfor %}
-		    </div>
-		    <div id="Paris" class="tabcontent">
-		      <h3>Paris</h3>
-		      <p>Paris is the capital of France.</p> 
-		    </div>
+		    {% endfor %}
 		</div>
 		<div class="col s12 m3">
 			<div class="col s12 center order-section">
@@ -52,7 +38,7 @@
 		</div>
 	</div>
 	<div class="row">
-	    <button id="checkout_button_{{rest_timings_id}}" class="checkout btn" style="height: 50px">checkout<i class="material-icons right">send</i></button>
+	    <button id="checkout_button_{{rest_timings_id}}" class="checkout btn waves-effect waves-light" style="height: 50px">checkout<i class="material-icons right">send</i></button>
     </div>
 	
 {% endblock %}

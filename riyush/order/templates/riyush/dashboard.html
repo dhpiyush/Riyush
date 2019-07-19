@@ -1,17 +1,28 @@
 {% extends 'riyush/index.html' %}
 
 {% block main %}
-	
-	{% for rest in restaurants %}
-	<div>
-		<a href="/restaurants/{{rest.id}}">
-			{{rest.name}}
-		</a>
+	<div class="main_div">
+		<div class="sub_div">
+			
+		</div>
 	</div>
-	{% endfor %}
 	<div class="container">
-		<div class="row contact-us-section">
-			<span>Contact Us</span>
+		<div class="row partner-restaurant-section">
+			<span>Partner Restaurants</span>
+		</div>
+		<div class="row">
+			{% for rest in restaurants %}
+			<div>
+				<a href="/restaurants/{{rest.id}}">
+					{{rest.name}}
+				</a>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+	<div class="container">
+		<div class="row how-it-works-section">
+			<span>How it Works</span>
 		</div>
 		<div class="row">
 			
